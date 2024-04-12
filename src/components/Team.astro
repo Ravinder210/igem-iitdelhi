@@ -1,0 +1,168 @@
+---
+import Container from "./Container.astro"
+
+---
+
+<astro>
+  <style>
+    .team-img-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5); /* Changed background color to semi-transparent black */
+    }
+  
+    .overlay:hover {
+      opacity: 1;
+    }
+  
+    .team-img {
+      transition: filter 0.3s ease;
+      height: 270px;
+      width: 270px;
+    }
+  
+    .overlay:hover + .team-img {
+      filter: blur(5px);
+    }
+  
+    .member-name {
+      color: white; /* Setting text color to white */
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-align: center;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      z-index: 100;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+  
+    .overlay:hover +  .member-name {
+      opacity: 1;
+    }
+  </style>
+  
+  <Container>
+    <div id="team" class="mb-12 space-y-2 m-[150px] text-center">
+      <h2 class="text-3xl underline underline-offset-1 font-bold text-gray-800 md:text-4xl dark:text-white">Meet The Team</h2>
+    </div>
+
+  
+    <div class="container mx-auto mb-40 px-30 flex justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/ravinder.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">Ravinder</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/shashank.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">Shashank</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/vidya.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">Vidya</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/parth.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">Parth</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/paaji.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">PrathamDeep</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/tuhin.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">Tuhin</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/Prashita.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">Prashita</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-card-container">
+          <div class="team-card">
+            <div class="team-member">
+              <div class="team-img-wrapper rounded-md">
+                <img class="team-img" src="/images/kushagra.png" alt="Team Member">
+                <div class="overlay">
+                  <div class="member-name">Kushagra</div> <!-- Placed member name inside overlay -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat the above code block for each team member -->
+      </div>
+    </div>
+  </Container>
+  </astro>
+  
+  
+  
