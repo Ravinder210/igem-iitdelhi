@@ -9,65 +9,7 @@ import Medal from '../components/medal.astro';
 
 
 import Blog from '../components/Blog.astro';
-
-const script = `
-  window.onload = function() {
-    const popup = document.getElementById('popup');
-    const closeBtn = document.getElementById('close-popup');
-    
-    if (!localStorage.getItem('popupShown')) {
-      popup.style.display = 'flex';
-    }
-
-    closeBtn.onclick = function() {
-      popup.style.display = 'none';
-      localStorage.setItem('popupShown', 'true');
-    }
-  }
-`;
 ---
-
-<html>
-<head>
-  <title>Welcome to iGEM IIT Delhi.</title>
-  <style>
-    #popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    #popup-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    #close-popup {
-      margin-top: 10px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <div id="popup">
-    <div id="popup-content">
-      <img src="/path-to-your-event-image.jpg" alt="Event Image" />
-      <p>Event Details Here...</p>
-      <a href="https://wa.me/yourwhatsappnumber" target="_blank" rel="noopener noreferrer">
-        <img src="/whatsapp-icon.png" alt="Join on WhatsApp" />
-      </a>
-      <button id="close-popup">Close</button>
-    </div>
-  </div>
 
 <Layout title="Welcome to Astrolus.">
 	<main class="space-y-40 ">
@@ -83,6 +25,3 @@ const script = `
 
 	</main>
 </Layout>
-  <script>{script}</script>
-</body>
-</html>
