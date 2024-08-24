@@ -1,1 +1,16 @@
+---
+const { openPopup, setOpenPopup } = Astro.props;
+---
 
+<div class={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ${openPopup ? 'block' : 'hidden'}`}>
+  <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+    <img src="/path-to-event-image.jpg" alt="Event Image" class="w-full h-48 object-cover rounded-md" />
+    <h2 class="text-xl font-bold mt-4">Event Title</h2>
+    <p class="mt-2 text-gray-700">Details about the event go here. Make sure to be concise but informative!</p>
+    <a href="https://wa.me/your-whatsapp-link" target="_blank" class="mt-4 flex items-center justify-center bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">
+      <img src="/path-to-whatsapp-icon.png" alt="WhatsApp" class="w-6 h-6 mr-2" />
+      Join Event on WhatsApp
+    </a>
+    <button class="mt-4 text-gray-500 hover:text-gray-700" on:click={() => setOpenPopup(false)}>Close</button>
+  </div>
+</div>
