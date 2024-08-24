@@ -6,38 +6,34 @@ import Layout from '../layouts/Layout.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Team from '../components/Team.astro';
 import Medal from '../components/medal.astro';
-
-
 import Blog from '../components/Blog.astro';
 import PopupNotification from '../components/PopupNotification.astro';
 
-
 let openPopup = true;
-
-// Use onMount to run a script when the component mounts
-import { onMount } from 'astro/client';
-
-onMount(() => {
-  if (!localStorage.getItem('eventPopupShown')) {
-    openPopup = true;
-    localStorage.setItem('eventPopupShown', 'true');
-  } else {
-    openPopup = false;
-  }
-});
 ---
 
 <Layout title="Welcome to Astrolus.">
-	<main class="space-y-40 ">
-		<HeroSection/>
-		<Features/>
-		<Stats/>
-		
-		
-		<Blog/>
-<Medal/>
-	<Team>
-		<Testimonials/>
-
-	</main>
+  <main class="space-y-40">
+    <PopupNotification openPopup={openPopup} setOpenPopup={setOpenPopup} />
+    <HeroSection/>
+    <Features/>
+    <Stats/>
+    <Blog/>
+    <Medal/>
+    <Team/>
+    <Testimonials/>
+  </main>
 </Layout>
+
+<script>
+  // Check if the popup has been shown before using localStorage
+  if (!localStorage.getItem('eventPopupShown')) {
+    document.querySelector('[data-popup]').classList.remove('hidden');
+    localStorage.setItem('eventPopupShown', 'true');
+  }
+
+  // Add an event listener to close the popup
+  document.querySelector('[data-popup-close]').addEventListener('click', function() {
+    document.querySelector('[data-popup]').classList.add('hidden');
+  });
+</script>
