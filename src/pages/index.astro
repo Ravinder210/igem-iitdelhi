@@ -11,16 +11,20 @@ import Medal from '../components/medal.astro';
 import Blog from '../components/Blog.astro';
 import PopupNotification from '../components/PopupNotification.astro';
 
+
 let openPopup = true;
 
-function handlePopup() {
-  if (!localStorage.getItem('eventPopupShown')) {
-    setOpenPopup(true);
-    localStorage.setItem('eventPopupShown', 'true');
-  }
-}
+// Use onMount to run a script when the component mounts
+import { onMount } from 'astro/client';
 
-Astro.onLoad(handlePopup);
+onMount(() => {
+  if (!localStorage.getItem('eventPopupShown')) {
+    openPopup = true;
+    localStorage.setItem('eventPopupShown', 'true');
+  } else {
+    openPopup = false;
+  }
+});
 ---
 
 <Layout title="Welcome to Astrolus.">
