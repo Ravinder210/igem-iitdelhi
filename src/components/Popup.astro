@@ -1,0 +1,21 @@
+---
+// Popup.astro
+import { createEffect, onCleanup } from 'solid-js';
+
+const isOpen = Astro.props.isOpen;
+const closePopup = () => {
+  localStorage.setItem('popupShown', 'true');
+  isOpen(false);
+}
+---
+
+<div class={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center ${isOpen() ? '' : 'hidden'}`}>
+  <div class="bg-white p-4 rounded-lg space-y-3">
+    <img src="/path-to-your-event-image.jpg" alt="Event Image" />
+    <p>Event Details Here...</p>
+    <a href="https://wa.me/yourwhatsappnumber" target="_blank" rel="noopener noreferrer">
+      <img src="/whatsapp-icon.png" alt="Join on WhatsApp" />
+    </a>
+    <button onClick={closePopup}>Close</button>
+  </div>
+</div>
