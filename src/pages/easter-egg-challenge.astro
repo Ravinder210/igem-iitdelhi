@@ -1,1 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const whatsappLink = "https://wa.me/yourwhatsappnumber";
+const qrCodeImage = "/path-to-your-qr-code-image.png";
+const eventImage = "/path-to-your-event-image.jpg";
+---
+
+<Layout title="Easter Egg Challenge - iGEM IIT Delhi">
+  <main class="space-y-10 p-8">
+    <section class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl font-bold mb-4">Easter Egg Challenge by iGEM IIT Delhi</h1>
+      <img src={eventImage} alt="Easter Egg Challenge" class="mx-auto mb-6" />
+
+      <p class="text-lg mb-4">
+        We are excited to announce the Easter Egg Challenge! Join the fun and participate in this exciting event organized by iGEM IIT Delhi.
+      </p>
+
+      <p class="text-lg mb-8">
+        Click the button below to join our WhatsApp group and stay updated with the latest information and event details.
+      </p>
+
+      <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="inline-block bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition duration-300">
+        Join WhatsApp Group
+      </a>
+
+      <div class="mt-10">
+        <h2 class="text-2xl font-bold mb-4">Scan to Register</h2>
+        <img src={qrCodeImage} alt="QR Code to Join WhatsApp Group" class="mx-auto w-48 h-48" />
+      </div>
+    </section>
+  </main>
+</Layout>
 
