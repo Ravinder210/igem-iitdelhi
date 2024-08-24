@@ -9,6 +9,18 @@ import Medal from '../components/medal.astro';
 
 
 import Blog from '../components/Blog.astro';
+import PopupNotification from '../components/PopupNotification.astro';
+
+let openPopup = true;
+
+function handlePopup() {
+  if (!localStorage.getItem('eventPopupShown')) {
+    setOpenPopup(true);
+    localStorage.setItem('eventPopupShown', 'true');
+  }
+}
+
+Astro.onLoad(handlePopup);
 ---
 
 <Layout title="Welcome to Astrolus.">
